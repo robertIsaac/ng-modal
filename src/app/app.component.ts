@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ModalService } from './modal.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-modal';
+  private modalService = inject(ModalService);
+
+  openModal() {
+    this.modalService.open({title: 'hey there', body: 'this is just a dummy modal'});
+  }
 }
